@@ -80,15 +80,21 @@ class MyHomePage extends ConsumerWidget {
   }
 }
 
-class SecondPage extends StatelessWidget {
+class SecondPage extends ConsumerWidget {
   const SecondPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    int count = ref.watch(appCount);
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        child: const Text("count value"),
+      body: Center(
+        child: Text(
+          "$count",
+          style: const TextStyle(
+            fontSize: 50,
+          ),
+        ),
       ),
     );
   }
