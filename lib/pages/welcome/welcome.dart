@@ -1,3 +1,4 @@
+import 'package:ecommerce/pages/welcome/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {
@@ -13,25 +14,16 @@ class Welcome extends StatelessWidget {
             // scrollBehavior: AxisDirection.up ,
             scrollDirection: Axis.horizontal,
             children: [
-              Image.asset("assets/images/reading.png"),
-              Image.asset("assets/images/boy.png"),
-              Image.asset("assets/images/reading.png"),
+              //firstpage
+              appOnboardingPage(),
+              //secondpage
+              appOnboardingPage(),
             ],
           ),
           const Positioned(
             bottom: 100,
             left: 20,
             child: Text("Widget one"),
-          ),
-
-          //partially positioned widget
-          const Positioned(
-            left: 200,
-            top: 100,
-            child: Text(
-              "Widget two",
-              style: TextStyle(fontSize: 30),
-            ),
           ),
         ],
       ),
