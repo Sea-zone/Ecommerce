@@ -1,21 +1,24 @@
 import 'package:ecommerce/common/widgets/text_widgets.dart';
 import 'package:flutter/material.dart';
 
-Widget appOnboardingPage() {
+//optional named parameter
+Widget appOnboardingPage(
+    {String imagePath = "assets/images/reading.png",
+    String title = "",
+    String subtitle = ""}) {
   return Column(
     children: [
       Image.asset(
-        "assets/images/reading.png",
+        imagePath,
         fit: BoxFit.fitWidth,
       ),
       Container(
           margin: const EdgeInsets.only(top: 15),
-          child: text24Normal(text: "First See Learning")),
+          child: text24Normal(text: title)),
       Container(
         margin: const EdgeInsets.only(top: 15),
         padding: const EdgeInsets.only(left: 30, right: 30),
-        child: text16Normal(
-            text: "Forget A bout of Paper all knowledge in one learning"),
+        child: text16Normal(text: subtitle),
       )
     ],
   );
