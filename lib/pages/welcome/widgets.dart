@@ -32,8 +32,7 @@ Widget _nextButton(int index, PageController controller) {
     onTap: () {
       if (index < 3) {
         controller.animateToPage(index,
-            duration: const Duration(microseconds: 300),
-            curve: Curves.bounceIn);
+            duration: const Duration(microseconds: 300), curve: Curves.linear);
       }
     },
     child: Container(
