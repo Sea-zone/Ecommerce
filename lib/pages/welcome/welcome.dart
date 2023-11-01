@@ -16,6 +16,16 @@ class _WelcomeState extends State<Welcome> {
   int dotsIndex = 0;
 
   @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        dotsIndex = _controller.page?.round() ?? 0;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
@@ -23,7 +33,7 @@ class _WelcomeState extends State<Welcome> {
         child: Scaffold(
             backgroundColor: Colors.white,
             body: Container(
-              margin: EdgeInsets.only(top: 30.w),
+              margin: EdgeInsets.only(top: 30.h),
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -68,12 +78,14 @@ class _WelcomeState extends State<Welcome> {
                     bottom: 50,
                     child: DotsIndicator(
                       dotsCount: 3,
+                      position: dotsIndex,
                       mainAxisAlignment: MainAxisAlignment.center,
                       decorator: DotsDecorator(
+                        activeColor: Colors.blue,
                         size: const Size.square(9.0),
                         activeSize: const Size(36.0, 8.0),
                         activeShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5.w),
                         ),
                       ),
                     ),
